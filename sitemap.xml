@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.joyer.top/link/index.html</loc>
+    
+    <lastmod>2022-01-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.joyer.top/2021/12/13/2021-12-13-1/</loc>
     
     <lastmod>2022-01-17</lastmod>
@@ -131,15 +140,6 @@
     <loc>https://blog.joyer.top/about/index.html</loc>
     
     <lastmod>2021-12-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.joyer.top/link/index.html</loc>
-    
-    <lastmod>2021-12-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
