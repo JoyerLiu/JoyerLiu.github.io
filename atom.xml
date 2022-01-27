@@ -6,7 +6,7 @@
   <link href="https://blog.joyer.top/atom.xml" rel="self"/>
   
   <link href="https://blog.joyer.top/"/>
-  <updated>2022-01-22T05:32:02.863Z</updated>
+  <updated>2022-01-27T12:25:44.943Z</updated>
   <id>https://blog.joyer.top/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决TrueNas Core/FreeNas的pkg不可用的问题</title>
+    <link href="https://blog.joyer.top/2022/01/27/2022-01-27-1/"/>
+    <id>https://blog.joyer.top/2022/01/27/2022-01-27-1/</id>
+    <published>2022-01-26T16:19:29.000Z</published>
+    <updated>2022-01-27T12:25:44.943Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>TrueNas Core/FreeNas是以FreeBSD为底层的Nas系统，所以自然也能使用pkg来安装软件，但是与FreeBSD不同的是，如果您直接在控制台使用<strong>#pkg  update</strong>或是直接使用pkg安装的话，会弹出这样的错误。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@truenas[~]# pkg update</span><br><span class="line">Updating local repository catalogue...</span><br><span class="line">pkg: file:///usr/ports/packages/meta.txz: No such file or directory</span><br><span class="line">repository local has no meta file, using default settings</span><br><span class="line">pkg: file:///usr/ports/packages/packagesite.pkg: No such file or directory</span><br><span class="line">pkg: file:///usr/ports/packages/packagesite.txz: No such file or directory</span><br><span class="line">Unable to update repository local</span><br><span class="line">Error updating repositories!</span><br></pre></td></tr></table></figure><hr><p>解决办法是：</p><ul><li>把 /usr/local/etc/pkg/repos/local.conf 中的 yes 改 no</li><li>把 /usr/local/etc/pkg/repos/FreeBSD.conf 中的 no 改 yes</li></ul><p>由此一来便可在控制台中直接使用pkg安装软件了。</p><p>要注意的是每次重启后系统会将usr/的数据还原，所以如果在重启后使用pkg还需要执行上面的操作，如果您觉得麻烦，将用于修改文件的命令写入开机任务当然也是可以的。</p><p>文段中部分搬运自<a href="http://events.jianshu.io/p/20b28fa3f51e">简书：FreeNAS</a> ,头图来自truenas官网，如侵删。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="服务器" scheme="https://blog.joyer.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="Nas" scheme="https://blog.joyer.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/Nas/"/>
+    
+    <category term="TrueNas/FreeNas" scheme="https://blog.joyer.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/Nas/TrueNas-FreeNas/"/>
+    
+    
+    <category term="Nas" scheme="https://blog.joyer.top/tags/Nas/"/>
+    
+    <category term="TrueNas" scheme="https://blog.joyer.top/tags/TrueNas/"/>
+    
+    <category term="FreeNas" scheme="https://blog.joyer.top/tags/FreeNas/"/>
+    
+    <category term="小知识" scheme="https://blog.joyer.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>2022年了</title>
