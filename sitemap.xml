@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.joyer.top/2022-02-06-1/</loc>
+    
+    <lastmod>2022-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.joyer.top/2022-1-28-1/</loc>
     
     <lastmod>2022-01-29</lastmod>
@@ -473,6 +482,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blog.joyer.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/tags/valine/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/tags/leancloud/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -554,6 +584,13 @@
   
   <url>
     <loc>https://blog.joyer.top/categories/%E6%97%85%E6%B8%B8/</loc>
+    <lastmod>2022-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
