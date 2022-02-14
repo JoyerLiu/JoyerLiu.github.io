@@ -2713,6 +2713,7 @@ h1.page-title + .tag-cloud-list {
   overflow: hidden;
   width: 4.2em;
   height: 4.2em;
+  border-radius: 8px;
 }
 #aside-content .aside-list > .aside-list-item .content {
   -webkit-box-flex: 1;
@@ -3795,10 +3796,11 @@ h1.page-title + .tag-cloud-list {
 .layout > div:not(.recent-posts) .pagination .page-number {
   display: inline-block;
   margin: 0 4px;
-  min-width: 24px;
-  height: 24px;
+  min-width: 35px;
+  height: 35px;
   text-align: center;
-  line-height: 24px;
+  line-height: 35px;
+  border-radius: 8px;
   cursor: pointer;
 }
 #article-container {
