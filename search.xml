@@ -20,11 +20,15 @@
       
         <tags>
             
+            <tag> 教程 </tag>
+            
             <tag> 博客 </tag>
             
             <tag> valine </tag>
             
             <tag> leancloud </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -84,13 +88,13 @@
       
         <tags>
             
+            <tag> 教程 </tag>
+            
             <tag> Nas </tag>
             
             <tag> TrueNas </tag>
             
             <tag> FreeNas </tag>
-            
-            <tag> 小知识 </tag>
             
         </tags>
       
