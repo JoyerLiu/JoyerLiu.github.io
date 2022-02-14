@@ -2656,10 +2656,6 @@ h1.page-title + .tag-cloud-list {
 #aside-content .card-info #card-info-btn span {
   padding-left: 10px;
 }
-#aside-content .card-info #card-info-btn:hover {
-  border-radius: 8px;
-  background: #000;
-}
 #aside-content .item-headline {
   padding-bottom: 6px;
   font-size: 1.2em;
