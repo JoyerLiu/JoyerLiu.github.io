@@ -2953,13 +2953,13 @@ h1.page-title + .tag-cloud-list {
 .avatar-img img {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
   -webkit-transition: filter 375ms ease-in 0.2s, -webkit-transform 0.3s;
   -moz-transition: filter 375ms ease-in 0.2s, -moz-transform 0.3s;
   -o-transition: filter 375ms ease-in 0.2s, -o-transform 0.3s;
   -ms-transition: filter 375ms ease-in 0.2s, -ms-transform 0.3s;
   transition: filter 375ms ease-in 0.2s, transform 0.3s;
   object-fit: cover;
+  border-radius: 8px;
 }
 .avatar-img img:hover {
   -webkit-transform: rotate(360deg);
