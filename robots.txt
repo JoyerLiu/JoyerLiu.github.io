@@ -4,3 +4,5 @@ User-agent: *
 Disallow: /tags/
 Disallow: /about/
 Disallow: /categories/
+Disallow: /sponsor/
+Disallow: /messageboard/
