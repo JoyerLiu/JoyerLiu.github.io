@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>国服 最终幻想14 6.0 晓月的终焉 开服倒计时！</title>
+      <link href="/2022-02-17-1/"/>
+      <url>/2022-02-17-1/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script> <body><div id="timer" style="font-family:arial;color:#ffd400;font-size:50px;font-weight:600;text-align:center;white-space: pre-line;"></div><script type="text/javascript" language="javascript">var endDate=new Date(2022,2,16,15,00,00);//年月日时分秒，月要减去1(function daoJiShi(){var now=new Date();var oft=Math.round((endDate-now)/1000);var ofd=parseInt(oft/3600/24);var ofh=parseInt((oft%(3600*24))/3600);var ofm=parseInt((oft%3600)/60);var ofs=oft%60;document.getElementById('timer').innerHTML='距离 国服 FF14 6.0 晓月的终焉 \n 开服还剩下' +' \n ' +ofd+ ' 天 '+ ofh + '小时' + ofm +'分' + ofs + '秒';if(ofs<0){document.getElementById('timer').innerHTML='FF14 6.0 晓月的终焉 开服啦！';return;};setInterval(daoJiShi,1000);//setTimeout('daoJiShi()',1000);}());</script></body>]]></content>
+      
+      
+      <categories>
+          
+          <category> 游戏 </category>
+          
+          <category> 最终幻想14 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FF14 </tag>
+            
+            <tag> 最终幻想14 </tag>
+            
+            <tag> 游戏 </tag>
+            
+            <tag> 晓月的终焉 </tag>
+            
+            <tag> FF14 6.0 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决Hexo使用valine无法连接国际版leancloud的问题</title>
       <link href="/2022-02-06-1/"/>
       <url>/2022-02-06-1/</url>
