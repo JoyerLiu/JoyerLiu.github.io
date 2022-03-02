@@ -6,3 +6,6 @@ Disallow: /about/
 Disallow: /categories/
 Disallow: /sponsor/
 Disallow: /messageboard/
+Disallow: /timeline/
+Disallow: /myself/
+Disallow: /timeline/
