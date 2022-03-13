@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.joyer.top/2022-03-13-1/</loc>
+    
+    <lastmod>2022-03-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.joyer.top/2021-12-03-3/</loc>
     
     <lastmod>2022-03-12</lastmod>
@@ -547,6 +556,20 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blog.joyer.top/tags/HTML/</loc>
+    <lastmod>2022-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/tags/%E7%BD%91%E9%A1%B5%E5%AF%BC%E8%88%AA/</loc>
+    <lastmod>2022-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -649,6 +672,13 @@
   
   <url>
     <loc>https://blog.joyer.top/categories/%E6%97%85%E6%B8%B8/</loc>
+    <lastmod>2022-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5/</loc>
     <lastmod>2022-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
