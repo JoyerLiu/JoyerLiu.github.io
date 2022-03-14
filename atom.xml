@@ -6,7 +6,7 @@
   <link href="https://blog.joyer.top/atom.xml" rel="self"/>
   
   <link href="https://blog.joyer.top/"/>
-  <updated>2022-03-13T10:32:39.134Z</updated>
+  <updated>2022-03-14T02:41:29.999Z</updated>
   <id>https://blog.joyer.top/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode每日一题 599. 两个列表的最小索引总和</title>
+    <link href="https://blog.joyer.top/2022-03-14-1/"/>
+    <id>https://blog.joyer.top/2022-03-14-1/</id>
+    <published>2022-03-14T02:08:04.000Z</published>
+    <updated>2022-03-14T02:41:29.999Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>LeetCode刷题坚持每一天！今天是摸鱼的一天！题目<a href="https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists/">LeetCode 599. 两个列表的最小索引总和</a>.</p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>假设 Andy 和 Doris 想在晚餐时选择一家餐厅，并且他们都有一个表示最喜爱餐厅的列表，每个餐厅的名字用字符串表示。</p><p>你需要帮助他们用最少的索引和找出他们共同喜爱的餐厅。 如果答案不止一个，则输出所有答案并且不考虑顺序。 你可以假设答案总是存在。</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>示例 1:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: list1 = [&quot;Shogun&quot;, &quot;Tapioca Express&quot;, &quot;Burger King&quot;, &quot;KFC&quot;]，list2 = [&quot;Piatti&quot;, &quot;The Grill at Torrey Pines&quot;, &quot;Hungry Hunter Steakhouse&quot;, &quot;Shogun&quot;]</span><br><span class="line">输出: [&quot;Shogun&quot;]</span><br><span class="line">解释: 他们唯一共同喜爱的餐厅是“Shogun”。</span><br></pre></td></tr></table></figure><p>示例 2:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入:list1 = [&quot;Shogun&quot;, &quot;Tapioca Express&quot;, &quot;Burger King&quot;, &quot;KFC&quot;]，list2 = [&quot;KFC&quot;, &quot;Shogun&quot;, &quot;Burger King&quot;]</span><br><span class="line">输出: [&quot;Shogun&quot;]</span><br><span class="line">解释: 他们共同喜爱且具有最小索引和的餐厅是“Shogun”，它有最小的索引和1(0+1)。</span><br></pre></td></tr></table></figure><h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>这个题目让我纠结了很久，主要是“最少的索引和”这个字眼让我十分疑惑，翻了翻评论区得到解释 —— 两列表的下标和（看来还是我自己的理解能力不够哇/_ \），那么这样就说得通可以开始解题了。</p><p>整个题目意思其实就是让我们在最小下标和的情况下输出两个列表中同样的元素项目，也就是说我们既然能够输出下标和为 1 的答案，就不要输出下标和为 2 的答案，尽管下标和为 2 的元素比下标和为 1 的元素多。</p><p>那么我们就针对<code>list1</code>建立一个哈希表，每个元素内容作为 first，对应的 second 为<code>list1</code>中这个元素的下标； 而后我们可以开始循环遍历<code>list2</code>，当<code>list2</code>中的元素内容在哈希表中能找到，那么就计算<code>list1</code>此元素的下标与此元素在<code>list2</code>中对应的下标的和，然后对比 <code>vector&lt;string&gt; ans</code> 中的元素所指向的下标和，如果当前元素的下标和小于<code>ans</code>中元素的下标和，那么就直接清空ans并添加当前元素，但如果两元素的下标相等，那么就将其直接添加进数组<code>ans</code>中。</p><p>只需要这样，我们就能确定ans中的元素一定是我们需要的那些个。</p><p>那么开始写代码吧！</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//执行 100ms 超越23%   内存 35.8 MB 超越 78%</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">findRestaurant</span><span class="params">(vector&lt;string&gt;&amp; list1, vector&lt;string&gt;&amp; list2)</span> </span>&#123;</span><br><span class="line">        map&lt;string,<span class="keyword">int</span>&gt; list1_;<span class="comment">//哈希表</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list1.<span class="built_in">size</span>();i++)<span class="comment">//遍历输入哈希表</span></span><br><span class="line">            list1_[list1[i]]=i;</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list2.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(list1_.<span class="built_in">find</span>(list2[i])!=list1_.<span class="built_in">end</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                list1_[list2[i]]+=i;  <span class="comment">//计算下标和</span></span><br><span class="line">                <span class="keyword">if</span>(ans.<span class="built_in">size</span>()==<span class="number">0</span>)  <span class="comment">//当ans中没有元素时直接添加</span></span><br><span class="line">                    ans.<span class="built_in">push_back</span>(list2[i]);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(list1_[ans[<span class="number">0</span>]]&gt;list1_[list2[i]])  <span class="comment">//当ans中的元素在map中的下标和大于list2[i]时则清空替换</span></span><br><span class="line">                    ans.<span class="built_in">clear</span>(),ans.<span class="built_in">push_back</span>(list2[i]);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(list1_[ans[<span class="number">0</span>]]==list1_[list2[i]]) <span class="comment">//当ans中的元素在map中的下标和等于list2[i]时则添加进ans</span></span><br><span class="line">                    ans.<span class="built_in">push_back</span>(list2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h1 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h1><p>此解法非唯一解，且不一定是最好的解法，如果您有更好的解法，欢迎在评论区中提出。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="算法" scheme="https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="学习日志" scheme="https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="C++" scheme="https://blog.joyer.top/tags/C/"/>
+    
+    <category term="算法" scheme="https://blog.joyer.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="LeeCode" scheme="https://blog.joyer.top/tags/LeeCode/"/>
+    
+    <category term="模拟" scheme="https://blog.joyer.top/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode每日一题 393. UTF-8 编码验证</title>
@@ -640,32 +674,6 @@
     <category term="算法" scheme="https://blog.joyer.top/tags/%E7%AE%97%E6%B3%95/"/>
     
     <category term="特殊时间" scheme="https://blog.joyer.top/tags/%E7%89%B9%E6%AE%8A%E6%97%B6%E9%97%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://blog.joyer.top/2021-12-01-hello-world/"/>
-    <id>https://blog.joyer.top/2021-12-01-hello-world/</id>
-    <published>2021-11-30T16:00:00.000Z</published>
-    <updated>2022-01-27T15:32:14.635Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p style="font-size:25px;font-family:arial;">您好</p>欢迎来到我的博客，2021年12月1日，也就是今天，是我的博客的出生日。这篇文章同时是用来测试的。因为是刚刚建立的博客，所以站里可能会有一些小问题，请多多包含，遇到问题可以在留言板或评论区中给我留言。如果您也有博客，欢迎前往[友链](https://blog.joyer.top/link/)在评论区底下留言与我互换友链信息。<p><img src="https://api.ghser.com/random/api.php" alt="来自三秋的API"></p><blockquote><h2 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title=" HelloWorld "></a><p style="text-align:center;font-size:25px;"> HelloWorld </p></h2></blockquote>                                                                                      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">cout&lt;&lt;&quot;Hello, World!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="杂谈" scheme="https://blog.joyer.top/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-    <category term="杂谈" scheme="https://blog.joyer.top/tags/%E6%9D%82%E8%B0%88/"/>
-    
-    <category term="我的博客" scheme="https://blog.joyer.top/tags/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
