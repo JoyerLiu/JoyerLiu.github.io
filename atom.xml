@@ -6,7 +6,7 @@
   <link href="https://blog.joyer.top/atom.xml" rel="self"/>
   
   <link href="https://blog.joyer.top/"/>
-  <updated>2022-03-14T02:41:29.999Z</updated>
+  <updated>2022-03-16T23:22:16.521Z</updated>
   <id>https://blog.joyer.top/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MikuMikuDance 制作初体验，毫不掩饰地说，我看得性奋了</title>
+    <link href="https://blog.joyer.top/2022-03-17-1/"/>
+    <id>https://blog.joyer.top/2022-03-17-1/</id>
+    <published>2022-03-16T21:58:37.000Z</published>
+    <updated>2022-03-16T23:22:16.521Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>百般无聊刷着B站之际，一瞬之间突然想做个MMD玩玩，正巧以前有过一点点经验，说完就直接开干，以下是成果。</p><h1 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h1><div style="position:relative; padding-bottom:75%; width:100%; height:0 ; float:left;">    <iframe src="//player.bilibili.com/player.html?bvid=BV1Gb4y1p7Dg&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe></div><br><h1 id="关于MMD"><a href="#关于MMD" class="headerlink" title="关于MMD"></a>关于MMD</h1><p>MMD真的很好玩。从本人的体验来说，MMD 是我们这帮二刺螈爱好者表达对某个作品或是单个角色的喜爱然后创作出二创的最好的表达方式之一，不仅观看这些二创作品的观众能得到非常好的观感，对于二创作者自身都是一件成就感满满的事。</p><p>我直到昨天真正开始浅尝 MMD 的时候才发现 MMD 这个圈子是真的比我预想的规模还要庞大，有各种各样的社群网站资源网站来维护 MMD 这个庞大的圈子，并且也有属于这个圈子中人们不谋而合的规则来保护他们的圈子，在这个圈子里的每个人的愿望都如此纯粹（有点当年年轻的陈叔叔与他的 BiliBili 的感觉），就是为了自己喜欢的作品和角色去做这样的工作，他们制作的模型分镜特效甚至能够被免费分享，当然了不能用于商用，规则类似于我们这帮臭写代码的其中的代码开源规则。</p><p><img src="/.top//1.png" alt="发现新世界 BowlRoll"></p><p>我不禁感叹啊这东西太好了，让我仿佛回到了少年时期的那个夏天，空气都如此纯净。</p><p>稍微有点扯远了，做 MMD 当然不是一件简单的事，除了最基础的模型，你还得懂美术，得懂动作k帧，得懂场景渲染（就是那些shader之类的玩意），得会写分镜设计镜头语言，还得会视频制作……这么一套下来就一个人或者是几个人干真的超乎想象，但是关键人家又做得这么好！属实是为爱发电。</p><h1 id="做了一个-MMD！（托更LeetCode的理由！）"><a href="#做了一个-MMD！（托更LeetCode的理由！）" class="headerlink" title="做了一个 MMD！（托更LeetCode的理由！）"></a>做了一个 MMD！<del>（托更LeetCode的理由！）</del></h1><p>当然我也就是个门外汉，就只会套套大佬的模型、动作和镜头，自己做的话那是必然不可能，稍微学过一点皮毛的人都知道这玩意属实废精力。2000帧K个动作花费的时间真的很离谱。</p><p><img src="/.top//2.png" alt="MikuNikuDance 软件截图"><br>毫不掩饰地说，制作过程中我是真的看得<del>一度弟弟充血</del>，大佬做的表情和动作属实撩人，在此之前我认为我已经正式踏入现充门槛了，然而当我对此起反应之后，我不禁惊呼 “md我这不还是纯纯二刺螈嘛”，以及产生 “要和纸片人结婚” 的错觉，而后感叹 “啊纸片人真好啊，人生不就如此嘛”（。</p><p>很离谱，时过境迁我依旧还是那个热爱二刺螈的少年。</p><p>真就很离谱。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>LeetCode每日一题 599. 两个列表的最小索引总和</title>
@@ -639,35 +659,6 @@
     
     <category term="学习日志" scheme="https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/"/>
     
-    
-    <category term="C++" scheme="https://blog.joyer.top/tags/C/"/>
-    
-    <category term="算法" scheme="https://blog.joyer.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="LeetCode" scheme="https://blog.joyer.top/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>特殊的回文日子</title>
-    <link href="https://blog.joyer.top/2021-12-02-1/"/>
-    <id>https://blog.joyer.top/2021-12-02-1/</id>
-    <published>2021-12-02T08:08:08.000Z</published>
-    <updated>2022-01-17T17:01:44.212Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天是一个特殊的日子</p> <p style="text-align:center;font-size:25px"> 2021年12月2日 </p><p>我们用纯数字来表示就是 </p><p style="text-align:center;font-size:25px"> 20211202 </p> <p>它是一个无论是从头读起还是从尾读起都是一样的数字，这样的数字我们称其为回文数。</p><p>类似的有</p><p style="text-align:center;font-size:25px"> 123321 3468643 101 </p> <p>为了纪念今天，引申出一道来自leetcode的简单的算法题  <a href="https://leetcode-cn.com/problems/palindrome-number/">Leetcode 9.回文数</a>。</p><p>题目是这样描述的</p><p>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。<br>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。</p><h2 id="第一种解法"><a href="#第一种解法" class="headerlink" title=" 第一种解法 "></a><div align="left"> 第一种解法 </div></h2><p>根据题意，我们用string num来表示整数x，我们只需要对比num[i]与num[num.size()-i-1]是否相同即可,贴上代码。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        string num=<span class="built_in">to_string</span>(x);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num.<span class="built_in">size</span>()/<span class="number">2</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(num[i]!=num[num.<span class="built_in">size</span>()-i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="第二种解法"><a href="#第二种解法" class="headerlink" title=" 第二种解法 "></a><div align="left"> 第二种解法 </div></h2><p>下面描述另一种解法。</p><p>如果x确实是一个回文数，那么将其倒转后也与原数相等，我们只需要判断x与倒转后的结果是否相等即可。</p><blockquote><p><font color="red">需要特别强调一点的是,虽然形参x是以int类型定义，但倒转过后长度有可能会超出int的长度，所以我们应该使用long rev来承接倒转后的数据。（PS：由于LeetCode的C++编译器极其严格，在做题时我不得不添加一个if来判断rev是否超出长度，这当然也是另外的做法，毕竟条条大路通罗马）</font></p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num=x;</span><br><span class="line">        <span class="keyword">int</span> rev=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">long</span> i;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(num)</span><br><span class="line">        &#123;</span><br><span class="line">            i=rev*<span class="number">10</span>+num%<span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;INT_MAX)</span><br><span class="line">                rev=i;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            num/=<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x==rev)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>非常简单，但这样的解法肯定不是最优解。如果您有更好的解决方法，欢迎在下方评论区回复。</p><blockquote><h2 id="PS-："><a href="#PS-：" class="headerlink" title=" PS ："></a><div align="left"> PS ：</div></h2><p>关于倒转数据还有更优雅的函数来直接代替文中第二种解法的代码示例中巨大的while段，但似乎Leetcode没有这样的函数。<br>第一个 reverse(iterator begin,iterator begin)，来自algorithm库，适合容器使用。<br>第二个 strrev(string str),来自string.h库,适合string类型的变量使用。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">一道很简单的算法题</summary>
-    
-    
-    
-    <category term="技术" scheme="https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="算法" scheme="https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="特殊时间" scheme="https://blog.joyer.top/tags/%E7%89%B9%E6%AE%8A%E6%97%B6%E9%97%B4/"/>
     
     <category term="C++" scheme="https://blog.joyer.top/tags/C/"/>
     
