@@ -3269,6 +3269,40 @@ h1.page-title + .tag-cloud-list {
 #post-comment .comment-wrap > div:nth-child(2) {
   display: none;
 }
+#post-comment .v[data-class=v] .vcontent .vemoji {
+  width: initial;
+  max-width: 130px;
+}
+#post-comment .v[data-class=v] .vcontent .vemoji[alt*="tv"] {
+  width: 45px;
+}
+#post-comment .v[data-class=v] .vcontent .vemoji[alt*="coolapk"] {
+  width: 45px;
+}
+#post-comment .v[data-class=v] .vcontent .vemoji[src*="weibo"] {
+  width: 45px;
+}
+#post-comment .v[data-class=v] .vcontent .vemoji[src*="bilibili"] {
+  width: 60px;
+}
+#post-comment .v[data-class=v] .vemoji-popup button {
+  width: 65px;
+  line-height: 65px;
+  margin: 0.225em;
+}
+#post-comment .v[data-class=v] .vemoji-popup .vemoji {
+  max-width: 50px;
+  max-height: 50px;
+}
+#post-comment .v[data-class=v] .vemoji-popup .vtabs {
+  height: auto;
+}
+#post-comment .v[data-class=v] .vemoji-popup .vtab {
+  width: 50px;
+}
+#post-comment .v[data-class=v] .vemoji-popup .vtab-wrapper {
+  max-height: 200px;
+}
 #footer {
   position: relative;
   background: #7c92a1;
