@@ -48,25 +48,20 @@ body{
 
 .card-grids{
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(1, 2fr);
   grid-column-gap: var(--spacing-s);
   grid-row-gap: var(--spacing-s);
   max-width: var(--width-container);
+  min-height: 150px;
   width: 100%;
 }
 
-@media(min-height: 200px){
+@media(max-width: 500px){
   .card-grid{
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-@media(min-height: 90px){
-  .card-grid{
-    grid-template-columns: repeat(3, 1fr);
-  }
   .card-grids{
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
 }
 
