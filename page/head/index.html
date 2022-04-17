@@ -1,34 +1,41 @@
-<style>
-    .link-button{
-        width: 300px;
-        font-size: 5px;
-        background-color: white;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 3px 8px 4px rgba(7,17,27,0.05);
-        transition: 0.5s;
-        float: left;
-        position: relative;
-        background-repeat: no-repeat;
-        display: inline-block;
-        height: 200px;
-        background-size: contain;
-        overflow-wrap: break-word;
-    }
-    .link-button:hover{
-            box-shadow: 0 3px 8px 4px rgba(7,17,27,0.09);
-            transition: 0.5s;
-            cursor: pointer;
-        }
-    .button-img{
-        background-repeat: no-repeat;
-        display: inline-block;
-        height: 100px;
-        background-size: contain;
-    }
-</style>
-<div class="link-button" style="background-image: url(https://joyerliii.github.io/head_img/everydayleetcode.png);">
-    <p class="button-img" onclick="window.open('https://ff.web.sdo.com/web8/index.html#/index')"/>
-    <p style="padding:10px;"> LeetCode每日一题 学习笔记专题</p>
-</div>
+<!DOCTYPE html>
+<html lang="cn" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - CSS Filter Cards</title>
+  <link rel="stylesheet" href="./style.css">
 
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+<section class="hero-section">
+  <div class="card-grid" >
+    <a class="card" href="https://blog.joyer.top/tags/LeetCode/" target="_blank">
+      <div class="card__background" style="background-image: url(https://joyerliii.github.io/head_img/everydayleetcode.png)"></div>
+      <div class="card__content">
+        <p class="card__category">专题</p>
+        <h3 class="card__heading">LeetCode 刷题</h3>
+      </div>
+    </a>
+    <a class="card" href="https://blog.joyer.top/tags/%E6%95%99%E7%A8%8B/" target="_blank">
+      <div class="card__background" style="background-image: url(https://joyerliii.github.io/2021-12-03-3/4.png)"></div>
+      <div class="card__content">
+        <p class="card__category">专题</p>
+        <h3 class="card__heading">技术教程</h3>
+      </div>
+    </a>
+    <a class="card" href="#" target="_blank">
+      <div class="card__background" style="background-image: url(https://blog.joyer.top/2022-03-20-2/2.jpg)"></div>
+      <div class="card__content">
+        <p class="card__category">专题</p>
+        <h3 class="card__heading">生活</h3>
+      </div>
+    </a>
+  </div>
+</section>
+<!-- partial -->
+  
+</body>
+</html>
