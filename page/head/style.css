@@ -70,12 +70,16 @@ body{
 .card{
   list-style: none;
   position: relative;
+  box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
+  border-radius: var(--spacing-s);
   # height: 40%;
 }
 
 .cards{
   list-style: none;
   position: relative;
+  box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
+  border-radius: var(--spacing-s);
   # height: 40%;
 }
 
@@ -99,7 +103,6 @@ body{
   top: 0;
   transform-origin: center;
   trsnsform: scale(1) translateZ(0);
-  box-shadow: 0 3px 8px 6px rgba(7,17,27,0.05);
   transition: 
     filter 200ms linear,
     transform 200ms linear;
@@ -107,9 +110,11 @@ body{
 
 .card:hover .card__background{
   transform: scale(1.05) translateZ(0);
+  box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
 }
 .cards:hover .card__background{
   transform: scale(1.05) translateZ(0);
+  box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
 }
 
 .card-grid:hover > .card:not(:hover) .card__background{
