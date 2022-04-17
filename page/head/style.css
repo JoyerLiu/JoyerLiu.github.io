@@ -38,33 +38,36 @@ body{
 
 .card-grid{
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-column-gap: var(--spacing-l);
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: var(--spacing-s);
   grid-row-gap: var(--spacing-l);
   max-width: var(--width-container);
+  min-height: 200px;
   width: 100%;
 }
 
 .card-grids{
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-column-gap: var(--spacing-l);
-  grid-row-gap: var(--spacing-l);
+  grid-column-gap: var(--spacing-s);
+  grid-row-gap: var(--spacing-s);
   max-width: var(--width-container);
   width: 100%;
 }
 
-@media(min-width: 540px){
+@media(min-height: 200px){
   .card-grid{
-    grid-template-columns: repeat(3, 1fr);
-    height: 40%;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media(min-width: 960px){
+@media(min-height: 90px){
   .card-grid{
     grid-template-columns: repeat(3, 1fr);
   }
+  .card-grids{
+      grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .card{
@@ -101,6 +104,7 @@ body{
   position: absolute;
   right: 0;
   top: 0;
+  min-height: 90px;
   transform-origin: center;
   trsnsform: scale(1) translateZ(0);
   transition: 
