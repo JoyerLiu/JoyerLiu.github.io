@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.joyer.top/photo/index.html</loc>
+    
+    <lastmod>2022-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/photo-fengguang/</loc>
+    
+    <lastmod>2022-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/photo-renwen/</loc>
+    
+    <lastmod>2022-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.joyer.top/2022-03-21/</loc>
     
     <lastmod>2022-04-17</lastmod>
@@ -753,6 +780,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blog.joyer.top/tags/%E6%91%84%E5%BD%B1/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/tags/%E7%85%A7%E7%89%87/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/tags/%E4%BA%BA%E6%96%87/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -862,6 +910,20 @@
   
   <url>
     <loc>https://blog.joyer.top/categories/%E6%97%85%E6%B8%B8/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/categories/%E6%91%84%E5%BD%B1/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/categories/%E6%91%84%E5%BD%B1/%E4%BA%BA%E6%96%87/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

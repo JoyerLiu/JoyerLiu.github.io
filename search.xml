@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title>photo-fengguang</title>
+      <link href="/photo-fengguang/"/>
+      <url>/photo-fengguang/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div class="fj-gallery"><p>markdown 圖片格式</p>          </div>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>人文</title>
+      <link href="/photo-renwen/"/>
+      <url>/photo-renwen/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>#2022年2月11日摄</p><div class="fj-gallery"><p><img src="http://blog.joyer.top/photo-renwen/1.jpeg"><br><img src="http://blog.joyer.top/photo-renwen/2.jpeg"><br><img src="http://blog.joyer.top/photo-renwen/3.jpeg"></p>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 摄影 </category>
+          
+          <category> 人文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 摄影 </tag>
+            
+            <tag> 照片 </tag>
+            
+            <tag> 人文 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode每日一题 357. 统计各位数字都不同的数字个数</title>
       <link href="/2022-04-11/"/>
       <url>/2022-04-11/</url>
