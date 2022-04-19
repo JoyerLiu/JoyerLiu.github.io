@@ -151,11 +151,11 @@ body{
 }
 
 .card1:hover .card__background{
-  transform: scale(1.05) translateZ(0);
+  transform: scale(1.02) translateZ(0);
   box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
 }
 .card2:hover .card__background{
-  transform: scale(1.05) translateZ(0);
+  transform: scale(1.02) translateZ(0);
   box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
 }
 .card3:hover .card__background{
