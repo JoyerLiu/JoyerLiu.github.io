@@ -43,6 +43,34 @@
   </entry>
   
   <entry>
+    <title>实现路由器检测网络状态并重新登录</title>
+    <link href="https://blog.joyer.top/2022-05-01/"/>
+    <id>https://blog.joyer.top/2022-05-01/</id>
+    <published>2022-05-01T15:51:16.000Z</published>
+    <updated>2022-05-01T16:58:52.410Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>书接上回，自发布文章 <a href="https://blog.joyer.top/2021-12-03-3/">无锡学院校园网 实现路由器自动登录上网 支持多设备连接</a> 之后使用这个脚本已经过了差不多大半年了，依然很好用。<br>但最近经常发现路由器会无故掉线，思考可能是校园网的动态 IP 的持有时间被缩短然后强制下线，或者也有可能是系统问题，遂再写脚本实现<code>检测网络连接状态并重新登录</code>。</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>其实实现这个脚本也是非常简单，这里直接给出代码,复制粘贴即可。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">timeout=5</span><br><span class="line">url=www.baidu.com</span><br><span class="line">if [ $(curl -I -s --connect-timeout $&#123;timeout&#125; $&#123;url&#125; -w %&#123;http_code&#125; | tail -n1) = &quot;200&quot; ]</span><br><span class="line">then</span><br><span class="line">echo &quot;network is online&quot;</span><br><span class="line">else</span><br><span class="line">echo &quot;network not connect&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash">执行登录脚本</span></span><br><span class="line">sh /etc/storage/bjxy_auto_log.sh</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><p>原理是使用 curl 命令的 <code>-w %&#123;http_code&#125;</code> 参数读取网站的 http 状态码，如果是 200 则证明网络通畅，后上传路由器设定计划任务即可，这里不再赘述，有需要可阅 <a href="https://blog.joyer.top/2021-12-03-3/">无锡学院校园网 实现路由器自动登录上网 支持多设备连接</a> 中上传路由器的部分。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="脚本" scheme="https://blog.joyer.top/categories/%E6%8A%80%E6%9C%AF/%E8%84%9A%E6%9C%AC/"/>
+    
+    
+    <category term="脚本" scheme="https://blog.joyer.top/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+    <category term="教程" scheme="https://blog.joyer.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>天文</title>
     <link href="https://blog.joyer.top/photo-tianwen/"/>
     <id>https://blog.joyer.top/photo-tianwen/</id>
@@ -630,40 +658,6 @@
     <category term="桂林" scheme="https://blog.joyer.top/tags/%E6%A1%82%E6%9E%97/"/>
     
     <category term="柳州" scheme="https://blog.joyer.top/tags/%E6%9F%B3%E5%B7%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决TrueNas Core/FreeNas的pkg不可用的问题</title>
-    <link href="https://blog.joyer.top/2022-01-27-1/"/>
-    <id>https://blog.joyer.top/2022-01-27-1/</id>
-    <published>2022-01-26T16:19:29.000Z</published>
-    <updated>2022-02-23T01:25:24.802Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>TrueNas Core/FreeNas是以FreeBSD为底层的Nas系统，所以自然也能使用pkg来安装软件，但是与FreeBSD不同的是，如果您直接在控制台使用 <code>#pkg  update</code> 或是直接使用pkg安装的话，会弹出这样的错误。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@truenas[~]# pkg update</span><br><span class="line">Updating local repository catalogue...</span><br><span class="line">pkg: file:///usr/ports/packages/meta.txz: No such file or directory</span><br><span class="line">repository local has no meta file, using default settings</span><br><span class="line">pkg: file:///usr/ports/packages/packagesite.pkg: No such file or directory</span><br><span class="line">pkg: file:///usr/ports/packages/packagesite.txz: No such file or directory</span><br><span class="line">Unable to update repository local</span><br><span class="line">Error updating repositories!</span><br></pre></td></tr></table></figure><hr><p>解决办法是：</p><ul><li>把 /usr/local/etc/pkg/repos/local.conf 中的 <code>yes</code> 改 <code>no</code></li><li>把 /usr/local/etc/pkg/repos/FreeBSD.conf 中的 <code>no</code> 改 <code>yes</code></li></ul><p>由此一来便可在控制台中直接使用pkg安装软件了。</p><p>要注意的是每次重启后系统会将usr/的数据还原，所以如果在重启后使用pkg还需要执行上面的操作，如果您觉得麻烦，将用于修改文件的命令写入开机任务当然也是可以的。</p><p>文段中部分搬运自<a href="http://events.jianshu.io/p/20b28fa3f51e">简书：FreeNAS</a> ，如侵删。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="服务器" scheme="https://blog.joyer.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    <category term="Nas" scheme="https://blog.joyer.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/Nas/"/>
-    
-    <category term="TrueNas/FreeNas" scheme="https://blog.joyer.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/Nas/TrueNas-FreeNas/"/>
-    
-    
-    <category term="教程" scheme="https://blog.joyer.top/tags/%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="Nas" scheme="https://blog.joyer.top/tags/Nas/"/>
-    
-    <category term="TrueNas" scheme="https://blog.joyer.top/tags/TrueNas/"/>
-    
-    <category term="FreeNas" scheme="https://blog.joyer.top/tags/FreeNas/"/>
     
   </entry>
   
