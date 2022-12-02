@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>无锡学院校园网 实现路由器自动登录上网 支持多设备连接 | Joyer的博客</title><meta name="keywords" content="脚本,自动登录,校园网,教程"><meta name="author" content="JoyerLiu"><meta name="copyright" content="JoyerLiu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="开始之前我在学校收了一个路由器后，开始折腾起了实现校园网的自动登录，因为本校的校园网要求是一人一号，并且只要设备想用校园网必须要登录才能上网，非常的恼人，还给宿舍的IoT设备连接网络造成了一定的麻烦。 在这之前已经有学校的大佬做过脚本并成功实现了自动登录，由于校园网在本校转设以后进行了一次更新，在我Ctrl+V后发现代码并不通用，遂开始研究大佬的脚本，并也成功实现了自动登录。但是在此之前我对She">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无锡学院校园网 实现路由器自动登录上网 支持多设备连接">
+<meta property="og:url" content="https://blog.joyer.top/2021-12-03-3/index.html">
+<meta property="og:site_name" content="Joyer的博客">
+<meta property="og:description" content="开始之前我在学校收了一个路由器后，开始折腾起了实现校园网的自动登录，因为本校的校园网要求是一人一号，并且只要设备想用校园网必须要登录才能上网，非常的恼人，还给宿舍的IoT设备连接网络造成了一定的麻烦。 在这之前已经有学校的大佬做过脚本并成功实现了自动登录，由于校园网在本校转设以后进行了一次更新，在我Ctrl+V后发现代码并不通用，遂开始研究大佬的脚本，并也成功实现了自动登录。但是在此之前我对She">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://JoyerLiii.github.io/2021-12-03-3/1.png">
+<meta property="article:published_time" content="2021-12-03T12:51:16.000Z">
+<meta property="article:modified_time" content="2022-09-12T10:51:19.243Z">
+<meta property="article:author" content="JoyerLiu">
+<meta property="article:tag" content="脚本">
+<meta property="article:tag" content="自动登录">
+<meta property="article:tag" content="校园网">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://JoyerLiii.github.io/2021-12-03-3/1.png"><link rel="shortcut icon" href="/img/favicon1.png"><link rel="canonical" href="https://blog.joyer.top/2021-12-03-3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?26a8dd26718087cbe122359639b5c043";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-L241SBBBXX"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-L241SBBBXX');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '无锡学院校园网 实现路由器自动登录上网 支持多设备连接',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-12 18:51:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Joyer的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://sdn.geekzu.org/avatar/08fcf342df77ad03fcad18399a2fcb74?d=mp&amp;v=1.4.16" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/sponsor/"><i class="fa-fw fa fa-handshake-angle"></i><span> 赞助</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-message"></i><span> 说点什么</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw fa-solid fa-comment"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fa-solid fa-comment"></i><span> 博主瞎叭叭</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-spa"></i><span> 杂项</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photo/"><i class="fa-fw fa-solid fa-camera"></i><span> 图库</span></a></li><li><a class="site-page child" href="/daohang/search.html"><i class="fa-fw fa-solid fa-gamepad"></i><span> FF14导航</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://JoyerLiii.github.io/2021-12-03-3/1.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Joyer的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/sponsor/"><i class="fa-fw fa fa-handshake-angle"></i><span> 赞助</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-message"></i><span> 说点什么</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw fa-solid fa-comment"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fa-solid fa-comment"></i><span> 博主瞎叭叭</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-spa"></i><span> 杂项</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photo/"><i class="fa-fw fa-solid fa-camera"></i><span> 图库</span></a></li><li><a class="site-page child" href="/daohang/search.html"><i class="fa-fw fa-solid fa-gamepad"></i><span> FF14导航</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无锡学院校园网 实现路由器自动登录上网 支持多设备连接</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-03T12:51:16.000Z" title="发表于 2021-12-03 20:51:16">2021-12-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-12T10:51:19.243Z" title="更新于 2022-09-12 18:51:19">2022-09-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/%E8%84%9A%E6%9C%AC/">脚本</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="无锡学院校园网 实现路由器自动登录上网 支持多设备连接"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a><div align="left">开始之前</div></h1><p>我在学校收了一个路由器后，开始折腾起了实现校园网的自动登录，因为本校的校园网要求是一人一号，并且只要设备想用校园网必须要登录才能上网，非常的恼人，还给宿舍的IoT设备连接网络造成了一定的麻烦。</p>
+<p>在这之前已经有学校的大佬做过脚本并成功实现了自动登录，由于校园网在本校转设以后进行了一次更新，在我Ctrl+V后发现代码并不通用，遂开始研究大佬的脚本，并也成功实现了自动登录。但是在此之前我对Shell脚本是完全没有了解过的，以下内容可能会有纰漏错误，请大佬们多多包含并在评论区指出我的文章中的不足之处，多谢。</p>
+<p>在教程开始之前，先要感谢大佬们的教程文章使得我也能够成功实现自动登录，这里放上本篇教程的参考与引用，并特别感谢学校的KMnO<sub>4</sub>大佬写的本校自动登录教程。</p>
+<p>校内KMnO<sub>4</sub>大佬的文章：<a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/25231797?shareKey=ZGJiYThmNTU1Y2ExNjFhYTVkNzM~&shareUid=1876394&shareFrom=com.coolapk.market_11.2.5">酷安：使用 Padavan 路由器实现校园网定时 Web 认证</a></p>
+<p>来自甲烷气瓶博客的文章：<a target="_blank" rel="noopener" href="https://jakting.com/archives/drcom-autologin-padavan-tgbot.html">Dr.COM校园网多设备解决方案——路由器 Padavan/LuCI 固件自动网页认证+Telegram Bot 定时发送连接情况</a></p>
+<p>那么我们就废话不多说开始教程。</p>
+<h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a><div align="left">内容</div></h1><p>本篇教程理论上适用于部分学校的以哆点（Dr.com）为模板制作的以网页方式登录的校园网，请注意您的路由器一定是以linux为底层的高自定义化的路由器系统固件，像是Openwrt、梅林、Padavan等系统固件，或者说您的路由器本身就自带了计划任务执行Shell脚本功能当然也是可以的。<br>本文完成于2021年12月4日，截止到本文的最后修改时间2022年9月12日，处于本校（即南京信息工程大学滨江学院/无锡学院）中的校园网仍然能够以本篇教程的方法实现自动登录。</p>
+<h2 id="能够实现的功能"><a href="#能够实现的功能" class="headerlink" title="能够实现的功能"></a><div align="left">能够实现的功能</div></h2><ul>
+<li>自动登录校园网（废话）</li>
+<li>直接使用设备连接路由器并开始使用校园网而不需要登录</li>
+<li>如果有需要，还可以多开几个虚拟机使用多个账号进行网络聚合以获得更高带宽（本教程不涉及，仅提供思路）</li>
+</ul>
+<h2 id="第一步，获取GET-url"><a href="#第一步，获取GET-url" class="headerlink" title="第一步，获取GET url"></a><div align="left">第一步，获取GET url</div></h2><p>使用浏览器（最好是 Chrome 的内核浏览器）打开你的校园网链接，如本校的就是<a target="_blank" rel="noopener" href="http://10.1.99.100/">南京信息工程大学滨江学院/无锡学院校园网登录界面</a>。<br>按<code>F12</code>打开开发人员工具，选择<code>网络（NetWork）</code>，勾选<code>保存日志（Preserve log）</code>，并在页面中进行正常登陆。</p>
+<p><img src="https://joyerliii.github.io/2021-12-03-3/1.png"></p>
+<p>登录完成后，在开发者工具中的<code>网络（NetWork）</code>子页中寻找<code>请求url（GET url）</code></p>
+<p><img src="https://joyerliii.github.io/2021-12-03-3/2.png"></p>
+<blockquote><p>（很神奇的是用不到POST，一些学校的网页登录可能需要用到POST而不能是GET，如果您发现GET不能成功登录，可以转至文章顶部寻找甲烷气瓶博客写的教程，写得非常好）</p>
+</blockquote>
+<p>，一般来说是这么个格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://10.1.99.100:801/eportal/portal/login?callback=dr1003&amp;login_method=1&amp;user_account=,0,账号@cmcc&amp;user_password=密码&amp;wlan_user_ip=内网IP&amp;wlan_user_ipv6=&amp;wlan_user_mac=设备MAC&amp;wlan_ac_ip=10.1.1.1&amp;wlan_ac_name=&amp;jsVersion=4.1.3&amp;terminal_type=1&amp;lang=zh-cn&amp;v=9960&amp;lang=zh</span><br></pre></td></tr></table></figure>
+<p>把这个url记下来，随后退出校园网登录，我们要测试这个url是否能够使用。</p>
+<p>以Windows11系统为例，我们需要在<code>系统设置</code>-<code>网络和Internet</code>-<code>高级网络设置</code>-<code>硬件和连接属性</code> 中查找用来测试的设备的内网IP（以本校为例一般是10.x.x.x）（Windows这货藏重要信息是越来越能藏了），其他系统的设备请自行解决获取内网IP，网络上有很多办法。</p>
+<p>获取到IP以后，我们要替换url中的<code>wlan_user_ip=</code>后面的IP（为了防止IP自动更换），并把它粘贴到浏览器网址栏中，敲击回车，如果显示登陆成功，恭喜你，这篇教程对你有用，请继续向下看，如果失败了请转到文章开头提到的甲烷气瓶博客的文章。</p>
+<p>解决完请求url，我们要开始操作路由器获取它的内网IP了。</p>
+<h2 id="第二步，获取路由器内网IP"><a href="#第二步，获取路由器内网IP" class="headerlink" title="第二步，获取路由器内网IP"></a><div align="left">第二步，获取路由器内网IP</div></h2><p>为什么要获取内网IP呢，直接填入路由器的内网IP不行吗？因为校园网给予设备的IP是动态的，并且其生命只有一天甚至更少，所以我们每登录一次就要获取一次内网IP。</p>
+<p>将你的路由器连上校园网，并用一台设备连接到路由器以便对路由器进行操作。进入你的路由器后台终端，也就是常说的黑底白字看起来贼高端的命令行窗口。一般来说路由器后台网页中可以找得到，您也可以用通过ssh登录进入路由器后台，但无论是哪种方式，切记一定要以管理员账号登陆，默认是root。</p>
+<p>大部分的以Linux开发的系统都可以使用 <code>ip addr</code> 这条命令获取到设备的大部分网络信息，如果没找到，请尝试 <code>ifconfig</code>，都能获取到内网ip。<br><img src="https://joyerliii.github.io/2021-12-03-3/4.png"><br>随后，请在密密麻麻的字行间找到属于您的路由器的内网ip，我们就只要它，请您记住这个位置，我们要开始截取它了。</p>
+<p>这里给出我截取路由器内网ip地址的命令，您可以按照这个命令进行参考。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ip addr | grep eth0.1 | grep inet | awk &#x27;&#123;print $2&#125;&#x27; | cut -d &quot;/&quot; -f 1</span><br></pre></td></tr></table></figure>
+<p>正所谓授人以鱼不如授人以渔，并且您需要按照您路由器的自身情况参与到构成专属于您的路由器的截取内网IP的命令中来，下面我来仔细讲讲用这行命令是如何截取出我们需要的内网IP的， 请看以下表格中对应的命令的具体作用，但羞于文笔不好，如果有不理解的可以前往表格中所指的链接查看更多（菜鸟教程对于学习计算机相关的朋友来说真是个好东西）。</p>
+<p>请注意您的命令格式，使用 | 将两个命令隔开，“|”两边带有空格，并且第一个命令一定是<code>ip addr</code>（也就是您需要截取的内容的获取命令）</p>
+<p>一个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr | grep inet</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>grep inet</th>
+<th>awk ‘{print $2}’</th>
+<th>cut -d “/“ -f 1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作用</td>
+<td>定位到关键词”inet”的所在行</td>
+<td>截取出当行的第2个字符块</td>
+<td>截取出以”/“字符分割的前字符块</td>
+</tr>
+<tr>
+<td>详细</td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-grep.html">菜鸟教程Linux grep</a></td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-awk.html">菜鸟教程Linux awk</a></td>
+<td><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-cut.html">菜鸟教程Linux cut</a></td>
+</tr>
+</tbody></table>
+<p>首先第一个，<code>grep eth0.1</code>的作用，从字段中找到含有此关键词的对应行，这里我使用连接了校园网的网卡名称进行定位。</p>
+<p>定位的结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eth0.1@eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    link/ether 88:c3:97:b4:65:b9 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.2.91.138/18 brd 10.2.127.255 scope global eth0.1</span><br></pre></td></tr></table></figure>
+
+<p>第二个，<code>grep inet</code>，不再赘述，这里是直接截取到有内网IP的那一行。</p>
+<p>截取结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inet 10.2.91.138/18 brd 10.2.127.255 scope global eth0.1</span><br></pre></td></tr></table></figure>
+
+<p>第三个，<code>awk &#39;&#123;print $2&#125;&#39;</code>,截取出第二个子块，也就是 inet 后面的IP，如果是<code>awk &#39;&#123;print $1&#125;&#39;</code>，截取出来的则是 inte 。</p>
+<p>截取结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10.2.91.138/18</span><br></pre></td></tr></table></figure>
+
+<p>还没完，我们还需要把子网掩码去掉，也就是‘/’后面的内容，第四个命令<code>cut -d &quot;/&quot; -f 1</code> ，这是个带有参数的命令，作用是截取“/”之前的文字段，如果 -f 的参数写的是 2，你将得到子网掩码 18。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10.2.91.138</span><br></pre></td></tr></table></figure>
+
+<p>如果您如上成功写出您的命令并以此获取内网IP，那么请保存好这条命令。恭喜你，第二步的工作完成了，我们终于可以开始编写Shell脚本了！</p>
+<h2 id="第三步，编写脚本"><a href="#第三步，编写脚本" class="headerlink" title="第三步，编写脚本"></a><div align="left">第三步，编写脚本</div></h2><p>新建一个文本文档，用 Notepad++ 打开它，当然其他文本编辑器也是可以的。</p>
+<p>这里给出我的脚本，仅供参考。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CURRENT_IP=$(ip addr | grep eth0.1 | grep inet | awk &#x27;&#123;print $2&#125;&#x27; | cut -d &quot;/&quot; -f 1)</span><br><span class="line">#linux</span><br><span class="line">curl &#x27;http://10.1.99.100:801/eportal/portal/login?callback=dr1003&amp;login_method=1&amp;user_account=,0,账号@cmcc&amp;user_password=密码&amp;wlan_user_ip=&#x27;$CURRENT_IP&#x27;&amp;wlan_user_ipv6=&amp;wlan_user_mac=000000000000&amp;wlan_ac_ip=10.1.1.1&amp;wlan_ac_name=&amp;jsVersion=4.1.3&amp;terminal_type=1&amp;lang=zh-cn&amp;v=9960&amp;lang=zh&#x27;</span><br></pre></td></tr></table></figure>
+<p>第一行定义一个变量 <code>CURRENT_IP</code> ，我们用它来存放内网IP，等号后面输入 $() （括号里放第二步您成功截取路由器IP的命令）。</p>
+<p>第二行执行curl，后面使用单引号括住您在第一步能用来成功登录校园网的请求 url，并且将其中<code>wlan_user_ip</code>等号后面的内容改成变量<code>&#39;$CURRENT_IP&#39;</code></p>
+<p>Ctrl+S保存。</p>
+<p>这样一来，Shell 脚本也编好了。</p>
+<h2 id="第四步，上传路由器"><a href="#第四步，上传路由器" class="headerlink" title="第四步，上传路由器"></a><div align="left">第四步，上传路由器</div></h2><p>我们接下来需要将它上传到路由器中，有很多办法。</p>
+<ul>
+<li>方法一</li>
+</ul>
+<p>将上文编辑好的文本文档改成<code>UTF-8</code>编码，像是在 NotePad++ 的顶栏中找到<code>编码</code>-<code>转为UTF-8编码</code>，保存退出。</p>
+<p><img src="https://joyerliii.github.io/2021-12-03-3/6.png"></p>
+<p>改变后缀，从 <code>.txt</code> 改成 <code>.sh</code> ,并且用英文命名，如<code>auto_log.sh</code>(以下都以此文件名示范)。</p>
+<p>使用SSH或路由器管理网页的文件管理将这个脚本上传到路由器的<code>\etc\storage\</code>文件夹中，</p>
+<p>如果没有这个文件夹，请在路由器的命令行窗口中使用命令创建这个文件夹。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">进入storage文件夹的步骤，请一行行执行命令</span><br><span class="line"># cd /etc</span><br><span class="line"># cd storage</span><br><span class="line">如果发现没有这个文件夹，请执行创建文件夹指令</span><br><span class="line"># mkdir storage</span><br></pre></td></tr></table></figure>
+<p>然后在路由器管理页面的文件管理中上传sh文件到\etc\storage\里</p>
+<p>如果使用 ssh 上传，可以在 Windows 的 PassShell 中执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp 本地脚本文件位置 路由器用户名@路由器IP:/etc/storage/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法二</li>
+</ul>
+<p>在路由器终端中，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请一行行执行命令</span><br><span class="line"># cd /etc/storage</span><br><span class="line">如果没有这个文件夹，参照方法一中创建</span><br><span class="line"></span><br><span class="line">nano auto_log.sh</span><br></pre></td></tr></table></figure>
+<p>然后将本地的脚本内容直接复制到里面，使用<code>Ctrl+X</code>退出，输入Y后再敲击一次回车保存。</p>
+<hr>
+<p>方法很多，不再一一赘述，接下来我们要开始测试脚本是否可用，在路由器终端中输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh /etc/storage/auto_log.sh</span><br></pre></td></tr></table></figure>
+<p>如果您是完全按照教程中的流程走，返回为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dr1003(&#123;&quot;result&quot;:0,&quot;msg&quot;:&quot;IP: 10.x.x.x 已经在线！&quot;,&quot;ret_code&quot;:2&#125;);</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dr1003(&#123;&quot;result&quot;:1,&quot;msg&quot;:&quot;Portal协议认证成功！&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<p>而不是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error xxxxxxxxxx</span><br></pre></td></tr></table></figure>
+<p>恭喜您，此脚本可用，就差最后一步，我们就可以完成路由器的自动登录了。</p>
+<h2 id="第五步，添加计划任务"><a href="#第五步，添加计划任务" class="headerlink" title="第五步，添加计划任务"></a><div align="left">第五步，添加计划任务</div></h2><p>打开您的路由器管理页面的自动计划,以 OpenWrt 为例<br>在底部添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">00 8 * * * sh /etc/storage/auto_log.sh</span><br></pre></td></tr></table></figure>
+<p><img src="https://joyerliii.github.io/2021-12-03-3/5.png"></p>
+<p>运行时间可以自己定，在 <a target="_blank" rel="noopener" href="https://crontab.guru/">crontab.guru</a> 中可以自行计算需要的 cron 指令</p>
+<p>理论上来说这样就已经完成了自动登录的部署，您可以在第二天连上您路由器的 wifi 测试您的网络是否已经可以上网，如果成功，恭喜您，本篇教程成功使您的路由器成功的实现了自动登录校园网的功能。</p>
+<h1 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h1><p>如果您在根据本篇教程进行部署中出现了不可解决的问题，可以在评论下留言，或是直接通过 <a href="mailto:JoyerBill@qq.com">邮箱</a> 联系我，我会尝试帮助您解决问题。</p>
+<p><code>指路</code>：如果您是无锡学院/南京信息工程大学滨江学院的学生，除了本篇以路由器登陆为目的的脚本与自动计划的方法登录校园网外，您还可以参考查阅 <a target="_blank" rel="noopener" href="https://gitee.com/iIceCube/AutoConnect">[Gitee] AutoConnect</a> 这样以 Windows 桌面程序为载体的自动登陆方案。</p>
+<h1 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h1><p>关于实现<code>路由器掉线自动重连</code>的部分可阅 <a href="https://blog.joyer.top/2022-05-01/">实现路由器检测网络状态并重新登录</a> 。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">JoyerLiu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.joyer.top/2021-12-03-3/">https://blog.joyer.top/2021-12-03-3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.joyer.top" target="_blank">Joyer的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%84%9A%E6%9C%AC/">脚本</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/">自动登录</a><a class="post-meta__tags" href="/tags/%E6%A0%A1%E5%9B%AD%E7%BD%91/">校园网</a><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></div><div class="post_share"><div class="social-share" data-image="https://JoyerLiii.github.io/2021-12-03-3/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/ds/1.jpg" target="_blank"><img class="post-qr-code-img" src="/img/ds/1.jpg" alt="一颗棒棒糖 1.00￥(支付宝)"/></a><div class="post-qr-code-desc">一颗棒棒糖 1.00￥(支付宝)</div></li><li class="reward-item"><a href="/img/ds/6.jpg" target="_blank"><img class="post-qr-code-img" src="/img/ds/6.jpg" alt="一瓶漓泉1998 6.00￥(支付宝)"/></a><div class="post-qr-code-desc">一瓶漓泉1998 6.00￥(支付宝)</div></li><li class="reward-item"><a href="/img/ds/15.jpg" target="_blank"><img class="post-qr-code-img" src="/img/ds/15.jpg" alt="一碗隆江猪脚饭 15.00￥(支付宝)"/></a><div class="post-qr-code-desc">一碗隆江猪脚饭 15.00￥(支付宝)</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021-12-04-1/"><img class="prev-cover" src="https://JoyerLiii.github.io/head_img/3328766138bfdccbbb60c0eb8b9c9083.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">LeetCode每日一题 383. 赎金信</div></div></a></div><div class="next-post pull-right"><a href="/2021-12-03-2/"><img class="next-cover" src="/img/index_img1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">LeetCode 704.二分查找</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022-05-01/" title="实现路由器检测网络状态并重新登录"><img class="cover" src="https://joyerliii.github.io/2021-12-03-3/4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-01</div><div class="title">实现路由器检测网络状态并重新登录</div></div></a></div><div><a href="/2022-01-27-1/" title="解决TrueNas Core/FreeNas的pkg不可用的问题"><img class="cover" src="https://JoyerLiii.github.io/head_img/5ZFD_VG$MC[EY_MZ}BR[ARL.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-27</div><div class="title">解决TrueNas Core/FreeNas的pkg不可用的问题</div></div></a></div><div><a href="/2022-02-06-1/" title="解决Hexo使用valine无法连接国际版leancloud的问题"><img class="cover" src="https://joyerliii.github.io/head_img/IMG_20211206_200446.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-06</div><div class="title">解决Hexo使用valine无法连接国际版leancloud的问题</div></div></a></div><div><a href="/2022-12-02/" title="兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面"><img class="cover" src="https://blog.joyer.top/2022-12-02/2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-02</div><div class="title">兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://sdn.geekzu.org/avatar/08fcf342df77ad03fcad18399a2fcb74?d=mp&amp;v=1.4.16" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JoyerLiu</div><div class="author-info__description">一只会唱Lahee~的龙。</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JoyerLiu"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:JoyerBill@qq.com" target="_blank" title="邮箱"><i class="fa-solid fa-at"></i></a><a class="social-icon" href="https://space.bilibili.com/5515631" target="_blank" title="BiliBili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="http://www.coolapk.com/u/1876394" target="_blank" title="酷安"><i class="fa-brands fa-android"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站！由于本站部署于github，如果您发现访问缓慢，请尝试使用一些科技。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="toc-number">1.</span> <span class="toc-text">开始之前</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%BD%E5%A4%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">2.1.</span> <span class="toc-text">能够实现的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%8C%E8%8E%B7%E5%8F%96GET-url"><span class="toc-number">2.2.</span> <span class="toc-text">第一步，获取GET url</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%8C%E8%8E%B7%E5%8F%96%E8%B7%AF%E7%94%B1%E5%99%A8%E5%86%85%E7%BD%91IP"><span class="toc-number">2.3.</span> <span class="toc-text">第二步，获取路由器内网IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%8C%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC"><span class="toc-number">2.4.</span> <span class="toc-text">第三步，编写脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%8C%E4%B8%8A%E4%BC%A0%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="toc-number">2.5.</span> <span class="toc-text">第四步，上传路由器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%8C%E6%B7%BB%E5%8A%A0%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1"><span class="toc-number">2.6.</span> <span class="toc-text">第五步，添加计划任务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PS"><span class="toc-number">3.</span> <span class="toc-text">PS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AF%9D"><span class="toc-number">4.</span> <span class="toc-text">后话</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022-12-02/" title="兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面"><img src="https://blog.joyer.top/2022-12-02/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面"/></a><div class="content"><a class="title" href="/2022-12-02/" title="兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面">兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面</a><time datetime="2022-12-02T13:09:48.000Z" title="发表于 2022-12-02 21:09:48">2022-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022-10-25/" title="00后小屁孩的怀旧，爱华 T30 磁带机，真是又爱又恨"><img src="/img/index_img1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="00后小屁孩的怀旧，爱华 T30 磁带机，真是又爱又恨"/></a><div class="content"><a class="title" href="/2022-10-25/" title="00后小屁孩的怀旧，爱华 T30 磁带机，真是又爱又恨">00后小屁孩的怀旧，爱华 T30 磁带机，真是又爱又恨</a><time datetime="2022-10-25T11:20:54.000Z" title="发表于 2022-10-25 19:20:54">2022-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022-05-08/" title="LeetCode每日一题 442. 数组中重复的数据"><img src="https://joyerliii.github.io/head_img/everydayleetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode每日一题 442. 数组中重复的数据"/></a><div class="content"><a class="title" href="/2022-05-08/" title="LeetCode每日一题 442. 数组中重复的数据">LeetCode每日一题 442. 数组中重复的数据</a><time datetime="2022-05-08T05:42:35.000Z" title="发表于 2022-05-08 13:42:35">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022-05-02/" title="国内部分社区 APP 上线 IP 属地之后的一些思考"><img src="https://blog.joyer.top/2022-05-02/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="国内部分社区 APP 上线 IP 属地之后的一些思考"/></a><div class="content"><a class="title" href="/2022-05-02/" title="国内部分社区 APP 上线 IP 属地之后的一些思考">国内部分社区 APP 上线 IP 属地之后的一些思考</a><time datetime="2022-05-01T16:08:37.000Z" title="发表于 2022-05-02 00:08:37">2022-05-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022-05-01/" title="实现路由器检测网络状态并重新登录"><img src="https://joyerliii.github.io/2021-12-03-3/4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实现路由器检测网络状态并重新登录"/></a><div class="content"><a class="title" href="/2022-05-01/" title="实现路由器检测网络状态并重新登录">实现路由器检测网络状态并重新登录</a><time datetime="2022-05-01T15:51:16.000Z" title="发表于 2022-05-01 23:51:16">2022-05-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By JoyerLiu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://blog-waline-sooty.vercel.app/',
+      path: location.pathname,
+      visitor: true,
+      dark: 'html[data-theme="dark"]'
+
+    }, {"emoji":["https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/weibo/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/bilibilitv/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/bilibili2233/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/bilibiliHotKey/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Coolapk/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Snow-Miku/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Tieba/"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

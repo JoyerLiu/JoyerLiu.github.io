@@ -1,0 +1,11 @@
+# Robots.txt file from http://www.shijiazhuangseo.com.cn
+# All robots will spider the domain
+User-agent: *
+Disallow: /tags/
+Disallow: /about/
+Disallow: /categories/
+Disallow: /sponsor/
+Disallow: /messageboard/
+Disallow: /timeline/
+Disallow: /myself/
+Disallow: /timeline/

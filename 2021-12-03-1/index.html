@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>LeetCode每日一题：1005.K 次取反后最大化的数组和 | Joyer的博客</title><meta name="keywords" content="C++,算法,LeetCode,贪心算法"><meta name="author" content="JoyerLiu"><meta name="copyright" content="JoyerLiu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="今天的LeetCode题目又是难度为简单的题LeetCode 1005.K 次取反后最大化的数组和，先来看题。 题目给你一个整数数组 nums 和一个整数 k ，按以下方法修改该数组： 选择某个下标 i 并将 nums[i] 替换为 -nums[i] 。重复这个过程恰好 k 次。可以多次选择同一个下标 i 。 以这种方式修改数组后，返回数组 可能的最大和 。 题解读起来非常拗口而且难以理解，还好L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode每日一题：1005.K 次取反后最大化的数组和">
+<meta property="og:url" content="https://blog.joyer.top/2021-12-03-1/index.html">
+<meta property="og:site_name" content="Joyer的博客">
+<meta property="og:description" content="今天的LeetCode题目又是难度为简单的题LeetCode 1005.K 次取反后最大化的数组和，先来看题。 题目给你一个整数数组 nums 和一个整数 k ，按以下方法修改该数组： 选择某个下标 i 并将 nums[i] 替换为 -nums[i] 。重复这个过程恰好 k 次。可以多次选择同一个下标 i 。 以这种方式修改数组后，返回数组 可能的最大和 。 题解读起来非常拗口而且难以理解，还好L">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://JoyerLiii.github.io/head_img/1630389866290.jpg">
+<meta property="article:published_time" content="2021-12-03T05:04:13.000Z">
+<meta property="article:modified_time" content="2022-01-17T17:07:20.329Z">
+<meta property="article:author" content="JoyerLiu">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="贪心算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://JoyerLiii.github.io/head_img/1630389866290.jpg"><link rel="shortcut icon" href="/img/favicon1.png"><link rel="canonical" href="https://blog.joyer.top/2021-12-03-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?26a8dd26718087cbe122359639b5c043";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-L241SBBBXX"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-L241SBBBXX');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LeetCode每日一题：1005.K 次取反后最大化的数组和',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-18 01:07:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Joyer的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://sdn.geekzu.org/avatar/08fcf342df77ad03fcad18399a2fcb74?d=mp&amp;v=1.4.16" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/sponsor/"><i class="fa-fw fa fa-handshake-angle"></i><span> 赞助</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-message"></i><span> 说点什么</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw fa-solid fa-comment"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fa-solid fa-comment"></i><span> 博主瞎叭叭</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-spa"></i><span> 杂项</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photo/"><i class="fa-fw fa-solid fa-camera"></i><span> 图库</span></a></li><li><a class="site-page child" href="/daohang/search.html"><i class="fa-fw fa-solid fa-gamepad"></i><span> FF14导航</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://JoyerLiii.github.io/head_img/1630389866290.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Joyer的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/sponsor/"><i class="fa-fw fa fa-handshake-angle"></i><span> 赞助</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-message"></i><span> 说点什么</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw fa-solid fa-comment"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fa-solid fa-comment"></i><span> 博主瞎叭叭</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-spa"></i><span> 杂项</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photo/"><i class="fa-fw fa-solid fa-camera"></i><span> 图库</span></a></li><li><a class="site-page child" href="/daohang/search.html"><i class="fa-fw fa-solid fa-gamepad"></i><span> FF14导航</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LeetCode每日一题：1005.K 次取反后最大化的数组和</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-03T05:04:13.000Z" title="发表于 2021-12-03 13:04:13">2021-12-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-17T17:07:20.329Z" title="更新于 2022-01-18 01:07:20">2022-01-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/">学习日志</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">775</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode每日一题：1005.K 次取反后最大化的数组和"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>今天的LeetCode题目又是难度为简单的题<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximize-sum-of-array-after-k-negations/">LeetCode 1005.K 次取反后最大化的数组和</a>，先来看题。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><div align="left">题目</div></h2><p>给你一个整数数组 nums 和一个整数 k ，按以下方法修改该数组：</p>
+<p>选择某个下标 i 并将 nums[i] 替换为 -nums[i] 。<br>重复这个过程恰好 k 次。可以多次选择同一个下标 i 。</p>
+<p>以这种方式修改数组后，返回数组 可能的最大和 。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><div align="left">题解</div></h2><p>读起来非常拗口而且难以理解，还好LeetCode的题目都会给示例，我们来看看。</p>
+<h4 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a><div align="left">示例1：</div></h4><blockquote><p>输入：nums = [4,2,3], k = 1</p>
+<p>输出：5</p>
+<p>解释：选择下标 1 ，nums 变为 [4,-2,3] 。</p>
+</blockquote>
+<h4 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a><div align="left">示例2：</div></h4><blockquote><p>输入：nums = [2,-3,-1,5,-4], k = 2</p>
+<p>输出：13</p>
+<p>解释：选择下标 (1, 4) ，nums 变为 [2,3,-1,5,4] 。</p>
+</blockquote>
+
+<p>看完以后，我终于理解了题目说的是啥意思，通俗的来说就是拿nums[i]进行k次的nums[i]*=-1，随后把nums里的元素加起来返回，而且要是最大值。</p>
+<p>进行一波分析，从nums里拿出哪个元素进行变换，会使得最后的结果是最大呢，很显然是nums中最小的那个元素。</p>
+<p>用示例2举个例子，nums=[2,3,-1,5,-4] ; k=2，我们将最小那个元素掏出，是nums[4]=-4,给它进行变换，得到nums[4]=4, 变化后的结果为nums=[2,3,1,5,4],完成了第一次转换，所以k–,k=1。再进行一次变换，掏出nums最小那个元素，为nums[2]=1, 给它进行变换，结果为nums=[2,3,-1,5,4],此时k=0，已经完成变换，返回最后nums中的元素的和，即为结果。</p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a><div align="left">代码示例</div></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用递归</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">largestSumAfterKNegations</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">            <span class="keyword">if</span>(nums[n]&gt;nums[i])</span><br><span class="line">                n=i;</span><br><span class="line">        k--;</span><br><span class="line">        nums[n]*=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(k&lt;=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> i:nums)</span><br><span class="line">                ans+=i;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">largestSumAfterKNegations</span>(nums,k);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a><div align="left">修改</div></h2><p>经过大佬指点，对上述代码进行优化。</p>
+<p>原代码使用了递归的办法进行了深度为k次的递归，然而这是没有必要的，仅仅需要一个for循环即可搞定。<br>算法也可以进行优化，我们可以将nums使用sort()进行升序排序，从低位开始往上将0到k-1的负数倒转，如果发现nums[i]是正数，就跳出循环。<br>跳出循环后如果k!=0,那么就再次进行sort()排序，然后nums[0]*=(-1)^k),最后再输出结果。</p>
+<p>优化过后执行时间从30ms缩减至4ms</p>
+<h2 id="代码示例（改）"><a href="#代码示例（改）" class="headerlink" title="代码示例（改）"></a><div align="left">代码示例（改）</div></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">largestSumAfterKNegations</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;nums[i]&lt;<span class="number">0</span>&amp;&amp;i&lt;nums.<span class="built_in">size</span>()&amp;&amp;k!=<span class="number">0</span>;i++)</span><br><span class="line">            nums[i]*=<span class="number">-1</span>,k--;</span><br><span class="line">        <span class="keyword">if</span>(k!=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">            nums[<span class="number">0</span>]*=<span class="built_in">pow</span>(<span class="number">-1</span>,k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i:nums)</span><br><span class="line">            ans+=i;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>此解法非唯一解，且不一定是最好的解法，如果您有更好的解法，欢迎在评论区中提出。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">JoyerLiu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.joyer.top/2021-12-03-1/">https://blog.joyer.top/2021-12-03-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.joyer.top" target="_blank">Joyer的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a><a class="post-meta__tags" href="/tags/LeetCode/">LeetCode</a><a class="post-meta__tags" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">贪心算法</a></div><div class="post_share"><div class="social-share" data-image="https://JoyerLiii.github.io/head_img/1630389866290.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/ds/1.jpg" target="_blank"><img class="post-qr-code-img" src="/img/ds/1.jpg" alt="一颗棒棒糖 1.00￥(支付宝)"/></a><div class="post-qr-code-desc">一颗棒棒糖 1.00￥(支付宝)</div></li><li class="reward-item"><a href="/img/ds/6.jpg" target="_blank"><img class="post-qr-code-img" src="/img/ds/6.jpg" alt="一瓶漓泉1998 6.00￥(支付宝)"/></a><div class="post-qr-code-desc">一瓶漓泉1998 6.00￥(支付宝)</div></li><li class="reward-item"><a href="/img/ds/15.jpg" target="_blank"><img class="post-qr-code-img" src="/img/ds/15.jpg" alt="一碗隆江猪脚饭 15.00￥(支付宝)"/></a><div class="post-qr-code-desc">一碗隆江猪脚饭 15.00￥(支付宝)</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021-12-03-2/"><img class="prev-cover" src="/img/index_img1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">LeetCode 704.二分查找</div></div></a></div><div class="next-post pull-right"><a href="/2021-12-02-2/"><img class="next-cover" src="http://JoyerLiii.github.io/head_img/1630389848846.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">LeetCode每日一题：506.相对名字</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021-12-02-1/" title="特殊的回文日子"><img class="cover" src="https://JoyerLiii.github.io/head_img/1630389840388.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-02</div><div class="title">特殊的回文日子</div></div></a></div><div><a href="/2021-12-02-2/" title="LeetCode每日一题：506.相对名字"><img class="cover" src="http://JoyerLiii.github.io/head_img/1630389848846.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-02</div><div class="title">LeetCode每日一题：506.相对名字</div></div></a></div><div><a href="/2021-12-03-2/" title="LeetCode 704.二分查找"><img class="cover" src="/img/index_img1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-03</div><div class="title">LeetCode 704.二分查找</div></div></a></div><div><a href="/2021-12-04-1/" title="LeetCode每日一题 383. 赎金信"><img class="cover" src="https://JoyerLiii.github.io/head_img/3328766138bfdccbbb60c0eb8b9c9083.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-04</div><div class="title">LeetCode每日一题 383. 赎金信</div></div></a></div><div><a href="/2021-12-05-1/" title="LeetCode每日一题 372.超级次方"><img class="cover" src="https://JoyerLiii.github.io/head_img/360c91ac20d8f0e6589dedfacc43cc035ce93d6b_raw.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-05</div><div class="title">LeetCode每日一题 372.超级次方</div></div></a></div><div><a href="/2021-12-06-1/" title="LeetCode每日一题 1816. 截断句子"><img class="cover" src="/img/index_img1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-06</div><div class="title">LeetCode每日一题 1816. 截断句子</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://sdn.geekzu.org/avatar/08fcf342df77ad03fcad18399a2fcb74?d=mp&amp;v=1.4.16" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">JoyerLiu</div><div class="author-info__description">一只会唱Lahee~的龙。</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JoyerLiu"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:JoyerBill@qq.com" target="_blank" title="邮箱"><i class="fa-solid fa-at"></i></a><a class="social-icon" href="https://space.bilibili.com/5515631" target="_blank" title="BiliBili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="http://www.coolapk.com/u/1876394" target="_blank" title="酷安"><i class="fa-brands fa-android"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎访问本站！由于本站部署于github，如果您发现访问缓慢，请尝试使用一些科技。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B1%EF%BC%9A"><span class="toc-number">2.0.1.</span> <span class="toc-text">示例1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B2%EF%BC%9A"><span class="toc-number">2.0.2.</span> <span class="toc-text">示例2：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">代码示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-number">4.</span> <span class="toc-text">修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%EF%BC%88%E6%94%B9%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">代码示例（改）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022-12-02/" title="兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面"><img src="https://blog.joyer.top/2022-12-02/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面"/></a><div class="content"><a class="title" href="/2022-12-02/" title="兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面">兜兜转转兜兜又兜了回去--关于Android开发中 Fragment 生命周期 OnActivityCreated() 被弃用以及在 Fragment 监听按钮跳转页面</a><time datetime="2022-12-02T13:09:48.000Z" title="发表于 2022-12-02 21:09:48">2022-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022-10-25/" title="00后小屁孩的怀旧，爱华 T30 磁带机，真是又爱又恨"><img src="/img/index_img1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="00后小屁孩的怀旧，爱华 T30 磁带机，真是又爱又恨"/></a><div class="content"><a class="title" href="/2022-10-25/" title="00后小屁孩的怀旧，爱华 T30 磁带机，真是又爱又恨">00后小屁孩的怀旧，爱华 T30 磁带机，真是又爱又恨</a><time datetime="2022-10-25T11:20:54.000Z" title="发表于 2022-10-25 19:20:54">2022-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022-05-08/" title="LeetCode每日一题 442. 数组中重复的数据"><img src="https://joyerliii.github.io/head_img/everydayleetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode每日一题 442. 数组中重复的数据"/></a><div class="content"><a class="title" href="/2022-05-08/" title="LeetCode每日一题 442. 数组中重复的数据">LeetCode每日一题 442. 数组中重复的数据</a><time datetime="2022-05-08T05:42:35.000Z" title="发表于 2022-05-08 13:42:35">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022-05-02/" title="国内部分社区 APP 上线 IP 属地之后的一些思考"><img src="https://blog.joyer.top/2022-05-02/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="国内部分社区 APP 上线 IP 属地之后的一些思考"/></a><div class="content"><a class="title" href="/2022-05-02/" title="国内部分社区 APP 上线 IP 属地之后的一些思考">国内部分社区 APP 上线 IP 属地之后的一些思考</a><time datetime="2022-05-01T16:08:37.000Z" title="发表于 2022-05-02 00:08:37">2022-05-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022-05-01/" title="实现路由器检测网络状态并重新登录"><img src="https://joyerliii.github.io/2021-12-03-3/4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实现路由器检测网络状态并重新登录"/></a><div class="content"><a class="title" href="/2022-05-01/" title="实现路由器检测网络状态并重新登录">实现路由器检测网络状态并重新登录</a><time datetime="2022-05-01T15:51:16.000Z" title="发表于 2022-05-01 23:51:16">2022-05-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By JoyerLiu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://blog-waline-sooty.vercel.app/',
+      path: location.pathname,
+      visitor: true,
+      dark: 'html[data-theme="dark"]'
+
+    }, {"emoji":["https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/weibo/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/bilibilitv/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/bilibili2233/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/bilibiliHotKey/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Coolapk/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Snow-Miku/","https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Tieba/"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
