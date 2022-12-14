@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.joyer.top/photo-renwen/</loc>
+    
+    <lastmod>2022-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.joyer.top/photo-fengguang/</loc>
+    
+    <lastmod>2022-12-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.joyer.top/2022-10-25/</loc>
     
     <lastmod>2022-12-14</lastmod>
@@ -93,24 +111,6 @@
   
   <url>
     <loc>https://blog.joyer.top/photo-tianwen/</loc>
-    
-    <lastmod>2022-04-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.joyer.top/photo-renwen/</loc>
-    
-    <lastmod>2022-04-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.joyer.top/photo-fengguang/</loc>
     
     <lastmod>2022-04-17</lastmod>
     
