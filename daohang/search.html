@@ -4,235 +4,82 @@
     <link rel="icon" href="https://blog.joyer.top/img/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://blog.joyer.top/img/favicon.png" type="image/x-icon">
     <title>最终幻想14 站点导航 | Joyer的Blog</title>
-    <style>
-        @font-face {
-            font-family: 'FontAwesome';
-            src: url('./fontawesome-webfont.eot');
-            src: url('./fontawesome-webfont.eot') format('embedded-opentype'),
-                url('./fontawesome-webfont.woff2') format('woff2'), url('.fontawesome-webfont.woff') format('woff'),
-                url('./fontawesome-webfont.ttf') format('truetype'),
-                url('./fontawesome-webfont.svg') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
-         *{
-            margin: 0px;
-            padding: 0px;
-        }
-        video{
-            position: fixed;
-            right: 0px;
-            bottom: 0px;
-            min-width: 100%;
-            min-height: 100%;
-            height: auto;
-            width: auto;
-            /*加滤镜*/
-            /*filter: blur(15px); //背景模糊设置 */
-            /*-webkit-filter: grayscale(100%);*/
-            /*filter:grayscale(100%); //背景灰度设置*/
-            z-index:-11
-        }
-        source{
-            min-width: 100%;
-            min-height: 100%;
-            height: auto;
-            width: auto;
-        }
-        .search-box {
-            font-family: FontAwesome;
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #ffffff;
-            height: 40px;
-            border: 10px;
-            border-radius: 40px;
-            padding: 10px;
-            opacity: 0;
-            transition-delay: 99999999s;
-            transition-duration: 1s;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-        .search-box:hover>.search-txt {
-            width: 300px;
-            padding: 0 6px;
-        }
-        .search-box:hover>.search-btn {
-            color: white;
-            background: black;
-        }
-        .search-btn {
-            transition: 0.5s;
-            font-family: FontAwesome;
-            font-size: 25px;
-            color: black;
-            float: right;
-            width: 40px;
-            height: 40px;
-            border: 10px;
-            border-radius: 50%;
-            background: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-        }
-        .search-txt {
-            border: none;
-            background: none;
-            outline: none;
-            float: left;
-            padding: 0;
-            color: black;
-            font-size: 16px;
-            transition: 0.6s;
-            line-height: 40px;
-            text-align: center;
-            width: 0px;
-        }
-        .body-show {
-            background-image: url(https://static.web.sdo.com/jijiamobile/pic/ff14/wallpaper/20220223patch60/ffxiv_6.0patch_01_2560x1440.jpg);
-            background-repeat: no-repeat;
-            background-origin: content-box;
-            background-color: black;
-            background-size: cover;
-            background-position: 50% 50%;
-            background-attachment: fixed;
-        }
-        .button-box{
-            width: auto;
-            height: auto;
-            position: absolute;
-            left: 50%;
-            top: 75%;
-            transform: translateX(-50%) translateY(-50%);
-
-        }
-
-        .link-button{
-            width: 100px;
-            font-size: 5px;
-            background-color: white;
-            padding: 10px;
-            border-radius: 8px;
-            margin: 20px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            transition: 0.5s;
-            float: left;
-            position: relative;
-        }
-        .link-button:hover{
-                box-shadow: 0 40px 80px  rgba(0, 0, 0, 0.2), 0 60px 200px  rgba(0, 0, 0, 0.19);
-                transform: scale(1.2);
-                transition: 0.5s;
-                cursor: pointer;
-            }
-        .button-img{
-            background-repeat: no-repeat;
-            display: inline-block;
-            height: 100px;
-            width: 100%;
-            background-size: contain;
-        }
-        .back-btn{
-            width: 50px;
-            height: 50px;
-            border-radius: 80px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            background-color: white;
-            margin: 20px;
-            transition: 0.5s;
-            float: left;
-        }
-        .back-btn:hover{
-            box-shadow: 0 40px 80px  rgba(0, 0, 0, 0.2), 0 60px 200px  rgba(0, 0, 0, 0.19);
-            transform: scale(1.2);
-            transition: 0.5s;
-            cursor: pointer;
-        }
-        @keyframes flash {
-            50% {
-                transform: scale(1.5);
-            }
-            80% {
-                transform: rotate(-60deg);
-            }
-            100% {
-                transform: rotate(30deg);
-            }
-        }
-        html:hover .search-box {
-            opacity: 1;
-            transition-delay: 0s;
-            transition-duration: 0s;
-        }
-    </style>
+    <link rel="stylesheet" href="./search.css">
 </head>
 <video id="v1" autoplay loop muted>
-    <source src="https://static.web.sdo.com/jijiamobile/pic/ff14/ffweb860/vidindex.mp4" type="video/mp4"  />
+    <source src="https://static.web.sdo.com/jijiamobile/pic/ff14/ffweb860/vidindex.mp4" type="video/mp4" />
 </video>
+
 <body>
-<button class="back-btn" onclick="window.open('https://blog.joyer.top/')" title="返回Joyer的博客")>
-    <i class="fa-solid fa-caret-left fa-3x"></i>
-</button>
-<h1 style="float: left;color: white;margin: 25px 0 0 0;text-shadow: 0 40px 80px  rgba(0, 0, 0, 0.2), 0 60px 200px  rgba(0, 0, 0, 0.19);">Joyer的博客 / 最终幻想14 网页导航</h1>
-<div class="button-box">
-    <div class="link-button" >
-        <p class="button-img" style="background-image: url(https://static.web.sdo.com/ff14/pic/date/pc/global/images/favicon.ico);" onclick="window.open('https://ff.web.sdo.com/web8/index.html#/index')"/>
-        <p style="padding:10px;"> 最终幻想14 国区官方网站 </p>
+    <button class="back-btn" onclick="window.open('https://blog.joyer.top/')" title="返回Joyer的博客" )>
+        <i class="fa-solid fa-caret-left fa-3x"></i>
+    </button>
+    <h1
+        style="float: left;color: white;margin: 25px 0 0 0;text-shadow: 0 40px 80px  rgba(0, 0, 0, 0.2), 0 60px 200px  rgba(0, 0, 0, 0.19);">
+        Joyer的博客 / 最终幻想14 网页导航</h1>
+    <div class="button-box">
+        <div class="link-button">
+            <p class="button-img"
+                style="background-image: url(https://static.web.sdo.com/ff14/pic/date/pc/global/images/favicon.ico);"
+                onclick="window.open('https://ff.web.sdo.com/web8/index.html#/index')" />
+            <p style="padding:10px;"> 最终幻想14 国区官方网站 </p>
+        </div>
+        <div class="link-button">
+            <p class="button-img"
+                style="background-image: url(https://av.huijiwiki.com/site_avatar_ff14_l.png?r=1647027972);"
+                onclick="window.open('https://ff14.huijiwiki.com/')" />
+            <p style="padding:10px;"> 最终幻想14 中文Wiki </p>
+        </div>
+        <div class="link-button">
+            <p class="button-img" style="background-image: url(https://www.ffxiv.cn/favicon.ico);"
+                onclick="window.open('https://www.ffxiv.cn/v2/')" />
+            <p style="padding:10px;"> 最终幻想14 素素攻略站 </p>
+        </div>
+        <div class="link-button">
+            <p class="button-img" style="background-image: url(https://blog.joyer.top/daohang/icon_sc_logo.png);"
+                onclick="window.open('https://www.ffxivsc.cn/#/')" />
+            <p style="padding:10px;"> 最终幻想14 光之收藏家 </p>
+        </div>
+        <div class="link-button">
+            <p class="button-img" style="background-image: url(https://5p.nbbjack.com/favicon.ico);"
+                onclick="window.open('https://5p.nbbjack.com/#/cal')" />
+            <p style="padding:10px;"> 最终幻想14 配方计算器 </p>
+        </div>
+        <div class="link-button">
+            <p class="button-img" style="background-image: url(https://asvel.gitee.io/ffxiv-gearing/favicon.ico);"
+                onclick="window.open('https://asvel.gitee.io/ffxiv-gearing/')" />
+            <p style="padding:10px;"> 最终幻想14 配装计算器 </p>
+        </div>
+        <div class="link-button">
+            <p class="button-img" style="background-image: url(https://assets.rpglogs.com/img/ff/favicon.png);"
+                onclick="window.open('https://cn.fflogs.com/')" />
+            <p style="padding:10px;"> 最终幻想14 Logs </p>
+        </div>
     </div>
-    <div class="link-button" >
-        <p class="button-img" style="background-image: url(https://av.huijiwiki.com/site_avatar_ff14_l.png?r=1647027972);" onclick="window.open('https://ff14.huijiwiki.com/')"/>
-        <p style="padding:10px;"> 最终幻想14 中文Wiki </p>
-    </div>
-    <div class="link-button" >
-        <p class="button-img" style="background-image: url(https://www.ffxiv.cn/favicon.ico);" onclick="window.open('https://www.ffxiv.cn/v2/')"/>
-        <p style="padding:10px;"> 最终幻想14 素素攻略站 </p>
-    </div>
-    <div class="link-button" >
-        <p class="button-img" style="background-image: url(https://blog.joyer.top/daohang/icon_sc_logo.png);" onclick="window.open('https://www.ffxivsc.cn/#/')"/>
-        <p style="padding:10px;"> 最终幻想14 光之收藏家 </p>
-    </div>
-    <div class="link-button" >
-        <p class="button-img" style="background-image: url(https://5p.nbbjack.com/favicon.ico);" onclick="window.open('https://5p.nbbjack.com/#/cal')"/>
-        <p style="padding:10px;"> 最终幻想14 配方计算器 </p>
-    </div>
-    <div class="link-button" >
-        <p class="button-img" style="background-image: url(https://asvel.gitee.io/ffxiv-gearing/favicon.ico);" onclick="window.open('https://asvel.gitee.io/ffxiv-gearing/')"/>
-        <p style="padding:10px;"> 最终幻想14 配装计算器 </p>
-    </div>
-    <div class="link-button" >
-        <p class="button-img" style="background-image: url(https://assets.rpglogs.com/img/ff/favicon.png);" onclick="window.open('https://cn.fflogs.com/')"/>
-        <p style="padding:10px;"> 最终幻想14 Logs </p>
-    </div>
-</div>
 
-<center>
-    <div class="search-box">
-        <input class="search-txt" type='text' id='inp' placeholder="搜索最终幻想14 中文wiki里的项目"/>
-        <button class="search-btn" type='button' id='btn' ><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
-    <div>
-    </div>
+    <center>
+        <div class="search-box">
+            <input class="search-txt" type='text' id='inp' placeholder="搜索最终幻想14 中文wiki里的项目" />
+            <button class="search-btn" type='button' id='btn'><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div>
+        </div>
 
-</center>
+    </center>
 </body>
 <script>
-	    var oInp = document.getElementById('inp');
-	    var oBtn = document.getElementById('btn');
-	    oBtn.onclick = function () {
-	        Search();
-	    }
-	    document.onkeydown = function () {
-	        if (event.keyCode == 13) {
-	            Search();
-	        }
-	    }
-	    function Search() {
-	        var url = 'https://ff14.huijiwiki.com/index.php?search=' + oInp.value;
-	        window.open(url);
-	    }
-
+    var oInp = document.getElementById('inp');
+    var oBtn = document.getElementById('btn');
+    oBtn.onclick = function () {
+        Search();
+    }
+    document.onkeydown = function () {
+        if (event.keyCode == 13) {
+            Search();
+        }
+    }
+    function Search() {
+        var url = 'https://ff14.huijiwiki.com/index.php?search=' + oInp.value;
+        window.open(url);
+    }
 </script>

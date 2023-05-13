@@ -1,0 +1,203 @@
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>@font-face {
+    font-family: 'FontAwesome';
+    src: url('./fontawesome-webfont.eot');
+    src: url('./fontawesome-webfont.eot') format('embedded-opentype'),
+        url('./fontawesome-webfont.woff2') format('woff2'), url('.fontawesome-webfont.woff') format('woff'),
+        url('./fontawesome-webfont.ttf') format('truetype'),
+        url('./fontawesome-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+video {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    /*加滤镜*/
+    /*filter: blur(15px); //背景模糊设置 */
+    /*-webkit-filter: grayscale(100%);*/
+    /*filter:grayscale(100%); //背景灰度设置*/
+    z-index: -11
+}
+
+.container {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    /* 设置容器的高度为视口的高度 */
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    /* 添加动画过渡效果 */
+}
+
+.hide {
+    transform: translateY(100%);
+    /* 向下移动内容 */
+}
+
+source {
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+.search-box {
+    font-family: FontAwesome;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    height: 40px;
+    border: 10px;
+    border-radius: 40px;
+    padding: 10px;
+    opacity: 0;
+    transition-delay: 99999999s;
+    transition-duration: 1s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.search-box:hover>.search-txt {
+    width: 300px;
+    padding: 0 6px;
+}
+
+.search-box:hover>.search-btn {
+    color: white;
+    background: black;
+}
+
+.search-btn {
+    transition: 0.5s;
+    font-family: FontAwesome;
+    font-size: 25px;
+    color: black;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border: 10px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.6s;
+    line-height: 40px;
+    text-align: center;
+    width: 0px;
+}
+
+.body-show {
+    background-image:
+        url(https://static.web.sdo.com/jijiamobile/pic/ff14/wallpaper/20220223patch60/ffxiv_6.0patch_01_2560x1440.jpg);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-color: black;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+}
+
+.button-box {
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    transform: translateX(-50%) translateY(-50%);
+
+}
+
+.link-button {
+    width: 100px;
+    font-size: 5px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s;
+    float: left;
+    position: relative;
+}
+
+.link-button:hover {
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2), 0 60px 200px rgba(0, 0, 0, 0.19);
+    transform: scale(1.2);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.button-img {
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 100px;
+    width: 100%;
+    background-size: contain;
+}
+
+.back-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    margin: 20px;
+    transition: 0.5s;
+    float: left;
+}
+
+.back-btn:hover {
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2), 0 60px 200px rgba(0, 0, 0, 0.19);
+    transform: scale(1.2);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+@keyframes flash {
+    50% {
+        transform: scale(1.5);
+    }
+
+    80% {
+        transform: rotate(-60deg);
+    }
+
+    100% {
+        transform: rotate(30deg);
+    }
+}
+
+html:hover .search-box {
+    opacity: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+}

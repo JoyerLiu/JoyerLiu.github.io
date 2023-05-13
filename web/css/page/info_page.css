@@ -1,0 +1,24 @@
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>@import "../base/ui.css";
+@import "../base/text.css";
+
+#product_info_div{
+    margin:50px ;
+}
+
+#product_category{
+    margin: 5px
+}
+
+#product_category > div{
+    margin: 5px 5px
+}
+
+#buy_button{
+
+}
+
+#product_introduce{
+    margin:100px 10% 20px 10%;
+    border-radius: 16px;
+    padding: 50px 10%;
+}
